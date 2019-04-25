@@ -7,6 +7,10 @@ node:
   ingest: ${NODE_INGEST}
   max_local_storage_nodes: ${MAX_LOCAL_STORAGE_NODES}
 
+path:
+  data: /data/data
+  logs: /data/log
+
 processors: ${PROCESSORS:1}
 
 network.host: ${NETWORK_HOST}
@@ -25,4 +29,3 @@ discovery:
   zen:
     ping.unicast.hosts: ${DISCOVERY_SERVICE}
     minimum_master_nodes: ${NUMBER_OF_MASTERS}
-

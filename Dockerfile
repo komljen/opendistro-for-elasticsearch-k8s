@@ -17,8 +17,12 @@ ENV MAX_LOCAL_STORAGE_NODES 1
 ENV SHARD_ALLOCATION_AWARENESS ""
 ENV SHARD_ALLOCATION_AWARENESS_ATTR ""
 ENV MEMORY_LOCK false
-ENV REPO_LOCATIONS ""
 ENV DISCOVERY_SERVICE elasticsearch-discovery
+ENV TAKE_FILE_OWNERSHIP yes
 
 ADD config /usr/share/elasticsearch/config
+COPY es-entrypoint.sh /usr/local/bin/es-entrypoint.sh
 
+VOLUME ["/data"]
+
+ENTRYPOINT ["/usr/local/bin/es-entrypoint.sh"]
